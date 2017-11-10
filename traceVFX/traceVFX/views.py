@@ -12,7 +12,6 @@ def save_note(request):
     params = json.loads(request.body)
     id = params.pop('id')
     params.pop('time')
-    print params
     note, created = Note.objects.update_or_create(
         id=id, defaults=params
     )
