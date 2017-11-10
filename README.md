@@ -1,9 +1,10 @@
 # TraceVFX
 TraceVFX
 
-Clone git repositoryusing following url
+Clone git repository using following url
 git clone https://github.com/nikhilrane1992/TraceVFX.git
 
+### Follow following command to setup project
 - Create virtual environment
 - Activate virtual environment
 - Install django
