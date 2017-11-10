@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render_to_response
 from models import *
+import json
 
 
 def index(request):
@@ -8,8 +9,10 @@ def index(request):
 
 
 def save_note(request):
-    params = request.POST
+    params = json.loads(request.body)
     id = params.pop('id')
+    params.pop('time')
+    print params
     note, created = Note.objects.update_or_create(
         id=id, defaults=params
     )
@@ -32,7 +35,7 @@ def notes_list(request):
 
 
 def delete_note(request):
-    params = request.POST
+    params = json.loads(request.body)
     id = params.pop('id')
     Note.objects.get(id=id).delete()
     return JsonResponse({
